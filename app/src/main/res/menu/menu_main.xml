@@ -3,8 +3,13 @@
       xmlns:tools="http://schemas.android.com/tools"
       tools:context="com.example.event.MainActivity">
     <item
-        android:id="@+id/action_settings"
-        android:orderInCategory="100"
-        android:title="@string/action_settings"
-        app:showAsAction="never"/>
+        android:id="@+id/event_menu"
+        android:icon="@drawable/add_icon_black"
+        android:title="切换"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/event_add"
+        android:icon="@drawable/add_icon_white"
+        android:title="添加"
+        app:showAsAction="always"/>
 </menu>

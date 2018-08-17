@@ -1,6 +1,7 @@
 package com.example.event.adapter;
 
 import android.content.Context;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -27,6 +28,7 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.View
         TextView text;
         TextView type;
         TextView distance ;
+        TextView dayTv ;
 
         private ViewHolder(View view)
         {
@@ -34,6 +36,7 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.View
             v = view;
             text = (TextView) view.findViewById(R.id.text);
             type = (TextView) view.findViewById(R.id.type);
+            dayTv = (TextView) view.findViewById(R.id.day_tv);
             distance = (TextView) view.findViewById(R.id.distance);
         }
     }
@@ -65,23 +68,27 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.View
     public void onBindViewHolder(ViewHolder holder, int position)
     {
         Event event = eventList.get(position);
-
         try{
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             Date utilDate = sdf.parse(event.getDate().getDate());
-
-            int interval = getIntervalDays(utilDate, new Date());
+            long date = utilDate.getTime()/(1000*60*60*24);
+            long today = new Date().getTime()/(1000*60*60*24);
+            long interval = date - today + 1;
 
             if(interval < 0) {
-                holder.text.setText("距离" + event.getText());
-                holder.type.setText("已经");
-                holder.distance.setText(String.valueOf(Math.abs(interval))+" 天");
+                holder.text.setText(event.getText());
+                holder.type.setText(" 已经");
+                holder.distance.setText(String.valueOf(Math.abs(interval)));
+                holder.distance.setBackgroundColor(ContextCompat.getColor(context, R.color.colorPrimary));
+                holder.dayTv.setBackgroundColor(ContextCompat.getColor(context, R.color.colorPrimaryDark));
             } else if(interval > 0) {
-                holder.text.setText("距离"+event.getText());
-                holder.type.setText("还有");
-                holder.distance.setText(String.valueOf(Math.abs(interval))+" 天");
+                holder.text.setText("距离 "+event.getText());
+                holder.type.setText(" 还有");
+                holder.distance.setText(String.valueOf(Math.abs(interval)));
+                holder.distance.setBackgroundColor(ContextCompat.getColor(context, R.color.colorAccent));
+                holder.dayTv.setBackgroundColor(ContextCompat.getColor(context, R.color.colorAccentDark));
             } else {
-                holder.text.setText(event.getText()+"就在今天！");
+                holder.text.setText(event.getText()+" 就在今天！");
             }
         } catch (ParseException e){
             e.printStackTrace();
@@ -95,9 +102,4 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.View
         return eventList.size();
     }
 
-    //计算两个时间的间隔(过去的为负数，还没到的为正数，今天为0)
-    public static int getIntervalDays(Date date, Date today){
-        long ei = date.getTime() - today.getTime();
-        return (int)(ei / (1000*60*60*24));
-    }
 }
