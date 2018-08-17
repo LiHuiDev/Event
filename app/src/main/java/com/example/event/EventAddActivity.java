@@ -49,7 +49,7 @@ public class EventAddActivity extends BaseActivity
         Event event = new Event();
         event.setText(editText.getText().toString());
         try{
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");//yyyy-mm-dd, 会出现时间不对, 因为小写的mm是代表: 秒
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
             Date utilDate = sdf.parse(date.getText().toString());
             event.setDate(new BmobDate(utilDate));
             event.save(new SaveListener<String>()
