@@ -88,7 +88,7 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.View
                 holder.distance.setBackgroundColor(ContextCompat.getColor(context, R.color.colorAccent));
                 holder.dayTv.setBackgroundColor(ContextCompat.getColor(context, R.color.colorAccentDark));
             } else {
-                holder.text.setText(event.getText()+" 就在今天！！！");
+                holder.text.setText(event.getText()+" 就在今天！！！！");
             }
         } catch (ParseException e){
             e.printStackTrace();
