@@ -2,6 +2,7 @@ package com.example.event;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -34,6 +35,7 @@ public class MainActivity extends BaseActivity
 
     private List<Event> events = new ArrayList<Event>();
     private Date date  = null;
+    private Boolean flag = false;
 
     @BindView(R.id.toolbar)Toolbar toolbar;
 
@@ -129,6 +131,14 @@ public class MainActivity extends BaseActivity
             case R.id.event_add:
                 Intent intent = new Intent(this, EventAddActivity.class);
                 startActivity(intent);
+                break;
+            case R.id.event_menu:
+                if(!flag){
+                    eventListRv.setLayoutManager(new GridLayoutManager(this, 2));
+                }else{
+                    eventListRv.setLayoutManager(new LinearLayoutManager(this));
+                }
+                flag = !flag;
                 break;
         }
         return super.onOptionsItemSelected(item);

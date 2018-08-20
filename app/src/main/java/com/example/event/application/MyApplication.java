@@ -14,4 +14,5 @@ public class MyApplication extends Application
         super.onCreate();
         Bmob.initialize(this, getString(R.string.bmob_appkey));
     }
+
 }

@@ -35,6 +35,10 @@
         </activity>
         <activity android:name=".EventAddActivity">
         </activity>
+        <activity
+            android:name=".EventEditActivity">
+        </activity>
+
     </application>
 
 </manifest>
