@@ -1,4 +1,4 @@
-package com.example.event.adapter;
+package com.example.event.countdown.adapter;
 
 import android.content.Context;
 import android.content.DialogInterface;
@@ -11,9 +11,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.event.EventEditActivity;
+import com.example.event.countdown.activity.EventEditActivity;
 import com.example.event.R;
-import com.example.event.bean.Event;
+import com.example.event.countdown.bean.Event;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

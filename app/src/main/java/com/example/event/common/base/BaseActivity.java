@@ -1,4 +1,4 @@
-package com.example.event.base;
+package com.example.event.common.base;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

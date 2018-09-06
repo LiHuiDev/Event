@@ -2,6 +2,8 @@
     <string name="app_name">倒数日</string>
     <string name="action_settings">Settings</string>
 
+    <!-- bmob开发AppKey -->
     <string name="bmob_appkey">06750aa88e67c2450ab08fe60ce89916</string>
-    <string name="title_activity_edit_event">EditEventActivity</string>
+
+
 </resources>

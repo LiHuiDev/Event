@@ -1,4 +1,4 @@
-package com.example.event;
+package com.example.event.main.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,9 +10,12 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.example.event.adapter.EventListAdapter;
-import com.example.event.base.BaseActivity;
-import com.example.event.bean.Event;
+import com.example.event.R;
+import com.example.event.SpaceItemDecoration;
+import com.example.event.countdown.activity.EventAddActivity;
+import com.example.event.countdown.adapter.EventListAdapter;
+import com.example.event.common.base.BaseActivity;
+import com.example.event.countdown.bean.Event;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

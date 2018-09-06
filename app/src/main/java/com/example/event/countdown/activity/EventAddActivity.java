@@ -1,4 +1,4 @@
-package com.example.event;
+package com.example.event.countdown.activity;
 
 import android.app.DatePickerDialog;
 import android.os.Bundle;
@@ -8,8 +8,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.event.base.BaseActivity;
-import com.example.event.bean.Event;
+import com.example.event.R;
+import com.example.event.common.base.BaseActivity;
+import com.example.event.countdown.bean.Event;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
